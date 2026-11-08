@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Политика cookie и хранения данных в браузере — Argent</title>
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<main class="screen legal-screen">
+  <article class="glass doc">
+    <nav class="doc-nav" aria-label="Документы">
+      <a href="index.html">← В приложение</a>
+      <a href="privacy.html">Конфиденциальность</a>
+      <a href="consent.html">Согласие на данные</a>
+      <a href="terms.html">Условия</a>
+      <a href="cookies.html">Cookie</a>
+      <a href="license.html">Лицензия</a>
+    </nav>
+    <h1>Политика cookie и хранения данных в браузере</h1>
+    <p class="meta">Редакция от 8 ноября 2026 г.</p>
+
+    <h2>Коротко</h2>
+    <p>Мы используем только необходимое хранение данных в браузере. Аналитики, рекламы и отслеживания между сайтами в Argent нет. Поэтому баннер с запросом согласия не нужен, а внизу страницы мы показываем только информационное уведомление.</p>
+
+    <h2>Что хранится в вашем браузере</h2>
+    <table>
+      <tr><th>Что</th><th>Зачем</th><th>Срок</th></tr>
+      <tr><td>Данные входа (localStorage, ключ вида <code>sb-…-auth-token</code>)</td><td>Чтобы вы оставались в аккаунте</td><td>Пока вы не выйдете</td></tr>
+      <tr><td><code>extractor</code> (localStorage)</td><td>Ваша настройка адреса экстрактора</td><td>Пока вы не очистите данные</td></tr>
+      <tr><td><code>notice_ok</code> (localStorage)</td><td>Запомнить, что вы закрыли уведомление</td><td>Пока вы не очистите данные</td></tr>
+      <tr><td>Кеш приложения (service worker)</td><td>Быстрое открытие и работа интерфейса</td><td>Пока вы не очистите данные</td></tr>
+    </table>
+    <p>Сайт сам не устанавливает cookie-файлы. Всё перечисленное необходимо для работы входа и интерфейса, поэтому согласия на это не требуется.</p>
+
+    <h2>Сторонние запросы</h2>
+    <p>При открытии сайта браузер обращается к GitHub Pages (страницы) и jsDelivr (библиотека входа); при входе и сохранении — к Supabase и Cloudflare. Эти сервисы видят ваш IP-адрес и тип браузера. Подробности — в <a href="privacy.html">Политике конфиденциальности</a>.</p>
+
+    <h2>Аналитика</h2>
+    <p>Не используется. Если мы подключим аналитику или рекламу, мы сначала обновим эту политику и попросим ваше согласие с возможностью отказаться.</p>
+
+    <h2>Как очистить данные</h2>
+    <p>iPhone: «Настройки → Safari → Дополнения → Данные сайтов», найдите сайт и удалите. Выход из аккаунта в приложении удаляет данные входа.</p>
+
+  </article>
+</main>
+<script src="config.js"></script>
+<script src="legal.js"></script>
+</body>
+</html>

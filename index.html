@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Argent</title>
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Argent">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Фон -->
+<div class="bg" aria-hidden="true"></div>
+
+<div id="toast" class="toast" role="status"></div>
+
+<!-- Экран входа -->
+<main id="authScreen" class="screen" hidden>
+  <section class="glass card auth">
+    <div class="logo"><svg class="cam" viewBox="0 0 64 48" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#9aa6b4"/></linearGradient></defs><rect x="3" y="6" width="40" height="36" rx="11" fill="rgba(255,255,255,.08)" stroke="url(#cg)" stroke-width="3.5"/><path d="M47 19 L60 11 V37 L47 29 Z" fill="rgba(255,255,255,.08)" stroke="url(#cg)" stroke-width="3.5" stroke-linejoin="round"/></svg></div>
+    <h1>Argent</h1>
+    <p class="muted">Скачивайте видео по ссылке и храните их у себя</p>
+    <form id="authForm" autocomplete="on">
+      <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="Почта" required>
+      <input id="password" type="password" autocomplete="current-password" placeholder="Пароль (от 6 символов)" minlength="6" required>
+      <div id="consents" class="consents" hidden>
+        <label class="check"><input type="checkbox" id="agreeTerms"><span>Принимаю <a href="terms.html" target="_blank" rel="noopener">Условия использования</a> и <a href="privacy.html" target="_blank" rel="noopener">Политику конфиденциальности</a></span></label>
+        <label class="check"><input type="checkbox" id="agreePd"><span>Даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a></span></label>
+      </div>
+      <button id="authBtn" class="btn primary" type="submit">Войти</button>
+    </form>
+    <button id="authToggle" class="link" type="button">Нет аккаунта? Зарегистрироваться</button>
+    <p id="authMsg" class="msg" role="alert"></p>
+    <nav class="legal-links" aria-label="Документы">
+      <a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="cookies.html">Cookie</a><a href="license.html">Лицензия</a>
+    </nav>
+  </section>
+</main>
+
+<!-- Основной экран -->
+<main id="appScreen" class="screen" hidden>
+  <header class="top glass">
+    <div class="brand"><svg class="cam sm" viewBox="0 0 64 48" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#9aa6b4"/></linearGradient></defs><rect x="3" y="6" width="40" height="36" rx="11" fill="rgba(255,255,255,.08)" stroke="url(#cg)" stroke-width="3.5"/><path d="M47 19 L60 11 V37 L47 29 Z" fill="rgba(255,255,255,.08)" stroke="url(#cg)" stroke-width="3.5" stroke-linejoin="round"/></svg> Argent</div>
+    <button id="settingsBtn" class="icon-btn" aria-label="Настройки">⚙︎</button>
+  </header>
+
+  <section id="tabDownload" class="tab">
+    <div class="glass card">
+      <h2>Скачать видео</h2>
+      <form id="dlForm">
+        <input id="url" type="url" inputmode="url" placeholder="Вставьте ссылку на видео" required>
+        <input id="title" type="text" placeholder="Название (необязательно)">
+        <button id="dlBtn" class="btn primary" type="submit">Скачать</button>
+      </form>
+      <div id="progress" class="progress" hidden>
+        <div class="bar"><i id="barFill"></i></div>
+        <span id="progText">0%</span>
+      </div>
+      <p class="hint">Работает с прямыми ссылками на файл (.mp4, .mov, .webm), до 50 МБ.</p>
+      <p class="hint">Сохраняйте только то, на что у вас есть права. Вы отвечаете за скачанное содержимое (<a href="terms.html" target="_blank" rel="noopener">Условия</a>).</p>
+    </div>
+  </section>
+
+  <section id="tabLibrary" class="tab" hidden>
+    <div id="list" class="list"></div>
+    <p id="empty" class="empty glass" hidden>Пока пусто. Скачайте первое видео на вкладке «Скачать».</p>
+  </section>
+
+  <nav class="tabbar glass">
+    <button class="tabbtn active" data-tab="tabDownload"><span>⬇︎</span>Скачать</button>
+    <button class="tabbtn" data-tab="tabLibrary"><span>▦</span>Библиотека</button>
+  </nav>
+</main>
+
+<!-- Настройки -->
+<div id="sheet" class="sheet" hidden>
+  <div class="glass card sheet-card">
+    <h2>Настройки</h2>
+    <p id="who" class="muted"></p>
+    <label class="lbl" for="extractor">Адрес сервиса-экстрактора (необязательно)</label>
+    <input id="extractor" type="url" placeholder="https://ваш-cobalt.example">
+    <p class="hint">Нужен только для ссылок на сайты-платформы. Оставьте пустым для прямых ссылок.</p>
+    <button id="saveSettings" class="btn primary" type="button">Сохранить</button>
+    <button id="logout" class="btn" type="button">Выйти</button>
+    <button id="deleteAccount" class="btn danger" type="button">Удалить аккаунт и все данные</button>
+    <nav class="legal-links" aria-label="Документы">
+      <a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="cookies.html">Cookie</a><a href="license.html">Лицензия</a>
+    </nav>
+    <button id="closeSheet" class="link" type="button">Закрыть</button>
+  </div>
+</div>
+
+<!-- Плеер -->
+<div id="player" class="sheet" hidden>
+  <div class="glass card sheet-card">
+    <video id="playerVideo" controls playsinline></video>
+    <button id="closePlayer" class="btn" type="button">Закрыть</button>
+  </div>
+</div>
+
+<!-- Уведомление о хранении данных в браузере (только необходимое, без аналитики) -->
+<aside id="notice" class="notice glass" hidden>
+  <p>Мы используем только необходимое хранение данных в браузере (вход и настройки). Аналитики и рекламы нет. <a href="cookies.html">Подробнее</a></p>
+  <button id="noticeOk" class="btn sm" type="button">Понятно</button>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

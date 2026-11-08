@@ -1,0 +1,15 @@
+Copyright (c) 2026 [ЗАПОЛНИТЕ: ФИО или название владельца]. All rights reserved.
+
+Все права защищены. Исходный код, дизайн и тексты Argent предоставлены только
+для просмотра. Копирование, изменение и распространение без письменного
+разрешения владельца запрещены.
+
+All rights reserved. The source code, design and text of Argent are provided
+for viewing only. Copying, modification and distribution are not permitted
+without the owner's written permission.
+
+Third-party components keep their own licenses:
+  - @supabase/supabase-js (MIT License, Copyright (c) Supabase)
+
+Если вы хотите открыть код, замените этот файл на выбранную лицензию
+(например, MIT) и обновите страницу license.html.
