@@ -4,7 +4,7 @@ window.APP_CONFIG = {
   SUPABASE_URL: "https://gztouisipzwgnqapawdo.supabase.co",
   SUPABASE_ANON_KEY: "sb_publishable_p-rFH9sqTXTeLGoTiHr75g_O391CilB",
   // Адрес Cloudflare Worker (без слэша в конце)
-  WORKER_URL: "https://argent-proxy.ВАШ-АККАУНТ.workers.dev",
+  WORKER_URL: "https://argent-proxy.d-tastanov.workers.dev",
   // Лимит бесплатного Supabase Storage на один файл
   MAX_BYTES: 50 * 1024 * 1024,
 
