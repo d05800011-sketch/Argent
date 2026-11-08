@@ -2,7 +2,7 @@
 window.APP_CONFIG = {
   // Supabase → Project Settings → API
   SUPABASE_URL: "https://ВАШ-ПРОЕКТ.supabase.co",
-  SUPABASE_ANON_KEY: "ВАШ_ANON_PUBLIC_КЛЮЧ",
+  SUPABASE_ANON_KEY: "sb_publishable_p-rFH9sqTXTeLGoTiHr75g_O391CilB",
   // Адрес Cloudflare Worker (без слэша в конце)
   WORKER_URL: "https://argent-proxy.ВАШ-АККАУНТ.workers.dev",
   // Лимит бесплатного Supabase Storage на один файл
